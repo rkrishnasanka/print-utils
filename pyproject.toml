@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "print-utils"
+version = "0.1.0"
+description = "Printer Utils for older printers"
+authors = ["Radhakrishna Sanka <rkrishnasanka@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "print_utils"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+click = "^8.1.7"
+pypdf2 = "^3.0.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+isort = "^5.12.0"
+mypy = "^1.5.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+inktank-split-pdf = "print_utils.split:split_pdf_odd_even_pages"
