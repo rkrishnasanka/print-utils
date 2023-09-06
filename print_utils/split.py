@@ -5,14 +5,14 @@ import click
 
 
 @click.command()
-@click.argument('pdf_path', type=click.Path(exists=True))
-def split_pdf_odd_even_pages(pdf_path: Path):
+@click.argument('pdf_path_str', type=click.Path(exists=True))
+def split_pdf_odd_even_pages(pdf_path_str: str):
     """
     Split a PDF into two PDFs, one with the odd pages and one with the even pages.
     """
-
+    pdf_path = Path(pdf_path_str)
     # Open the PDF file
-    pdf_file = open(pdf_path.absolute(), 'rb')
+    pdf_file = open(Path(pdf_path).absolute(), 'rb')
 
     # Create a PDF reader object
     pdf_reader = PdfReader(pdf_file)
